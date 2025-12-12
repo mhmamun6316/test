@@ -30,33 +30,21 @@
                     <a class="nav-link {{ request()->routeIs('manufacturing-excellence') ? 'active' : '' }}" href="{{ route('manufacturing-excellence') }}">Manufacturing Excellence</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ request()->routeIs('category') ? 'active' : '' }}" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Products
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                        <li><a class="dropdown-item" href="{{ route('category', 'knit') }}">Knit</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'women') }}">Women</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'nightwear-loungewear') }}">Nightwear and Loungewear</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'denim') }}">Denim</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'shirts') }}">Shirts</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'pants') }}">Pants</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 't-shirts') }}">T-Shirts</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'dresses') }}">Dresses</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'jackets') }}">Jackets</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'activewear') }}">Activewear</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'accessories') }}">Accessories</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('category', 'footwear') }}">Footwear</a></li>
+                        @php
+                            $navCategories = \App\Models\ProductCategory::where('status', 1)->get();
+                        @endphp
+                        @forelse($navCategories as $index => $navCategory)
+                            <li><a class="dropdown-item" href="{{ route('category', Str::slug($navCategory->name)) }}">{{ $navCategory->name }}</a></li>
+                            @if(!$loop->last)
+                                <li><hr class="dropdown-divider"></li>
+                            @endif
+                        @empty
+                            <li><a class="dropdown-item text-muted" href="#">No categories available</a></li>
+                        @endforelse
                     </ul>
                 </li>
             </ul>

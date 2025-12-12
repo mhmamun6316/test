@@ -12,12 +12,12 @@
             </video>
             <div class="video-overlay"></div>
         </div>
-        
+
         <div class="hero-content">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 text-center">
-                        
+
                     </div>
                 </div>
             </div>
@@ -32,8 +32,8 @@
                     <h1 class="evolution-title" data-aos="fade-up">Fashion Evolution</h1>
                     <p class="evolution-subtitle" data-aos="fade-up" data-aos-delay="100">Crafting Tomorrow's Style â€” Innovation Meets Elegance</p>
                     <p class="evolution-description" data-aos="fade-up" data-aos-delay="200">
-                        Discover the future of fashion with Radiant Sourcing, where creativity and sustainability converge to redefine modern style. 
-                        We blend exceptional craftsmanship with advanced technology to deliver fashion-forward solutions that inspire confidence and celebrate individuality. 
+                        Discover the future of fashion with Radiant Sourcing, where creativity and sustainability converge to redefine modern style.
+                        We blend exceptional craftsmanship with advanced technology to deliver fashion-forward solutions that inspire confidence and celebrate individuality.
                         From concept to creation, we transform visionary designs into wearable art that resonates with today's conscious consumer.
                     </p>
                 </div>
@@ -75,7 +75,6 @@
                             </ul>
                             <a href="#explore" class="btn btn-explore" data-aos="slide-left" data-aos-delay="700">
                                 <span>EXPLORE MORE</span>
-                                <span class="btn-arrow">â†’</span>
                             </a>
                         </div>
                     </div>
@@ -141,11 +140,11 @@
                 <div class="col-lg-6 ethical-content">
                     <h2 class="ethical-title" data-aos="slide-left">Ethical & Responsive Sourcing</h2>
                     <p class="ethical-description" data-aos="slide-left" data-aos-delay="100">
-                        Our dedication to principled and adaptive sourcing methods emphasizes openness, equitable 
-                        employment conditions, and ecological stewardship. We combine social accountability with 
-                        environmentally conscious production, collaborating with suppliers to establish sustainable 
-                        programs and encourage the adoption of natural, planet-friendly, and repurposed resources. 
-                        Leveraging our broad connections, we guarantee conscientious procurement and manufacturing 
+                        Our dedication to principled and adaptive sourcing methods emphasizes openness, equitable
+                        employment conditions, and ecological stewardship. We combine social accountability with
+                        environmentally conscious production, collaborating with suppliers to establish sustainable
+                        programs and encourage the adoption of natural, planet-friendly, and repurposed resources.
+                        Leveraging our broad connections, we guarantee conscientious procurement and manufacturing
                         processes that serve communities and the environment.
                     </p>
                     <a href="#explore" class="btn btn-ethical" data-aos="slide-left" data-aos-delay="400">EXPLORE MORE</a>
@@ -156,7 +155,7 @@
                     <!-- Main Image Container -->
                     <div class="ethical-main-image">
                         <img src="{{ asset('frontend/assets/ethical.jpg') }}" alt="Ethical Sourcing" class="img-fluid">
-                        
+
                         <!-- Certificates Overlay - Inside Image Bottom -->
                         <div class="certificates-overlay">
                             <!-- Certificates Swiper - Top Row (Right to Left) -->
@@ -230,11 +229,11 @@
                 <div class="col-lg-6 sustainability-content-left">
                     <h2 class="sustainability-title" data-aos="slide-left">Sustainability</h2>
                     <p class="sustainability-description" data-aos="slide-left" data-aos-delay="100">
-                        Our operations are guided by a vision of achieving social and ecological equilibrium, 
+                        Our operations are guided by a vision of achieving social and ecological equilibrium,
                         where the well-being of both humanity and the environment are prioritized and sustained.
                     </p>
                     <p class="sustainability-description" data-aos="slide-left" data-aos-delay="200">
-                        Ethically sourcing products and nurturing sustainability are fundamental to our mission, 
+                        Ethically sourcing products and nurturing sustainability are fundamental to our mission,
                         ensuring equitable treatment for workers and actively reducing our environmental impact.
                     </p>
                 </div>
@@ -254,12 +253,12 @@
                 </div>
                 <div class="col-lg-6 sustainability-content-right">
                     <p class="sustainability-description" data-aos="slide-right" data-aos-delay="100">
-                        Our growth focuses on environmental responsibility, with an emphasis on circular thinking, 
-                        emission reduction, water conservation, and responsible consumption. We collaborate with 
+                        Our growth focuses on environmental responsibility, with an emphasis on circular thinking,
+                        emission reduction, water conservation, and responsible consumption. We collaborate with
                         partners committed to ethical sourcing and environmental compliance.
                     </p>
                     <p class="sustainability-description" data-aos="slide-right" data-aos-delay="200">
-                        Sustainability is at the core of our growth plan, influencing every decision and action 
+                        Sustainability is at the core of our growth plan, influencing every decision and action
                         we take, as we collaborate with like-minded dedicated partners!
                     </p>
                     <a href="#explore" class="btn btn-sustainability" data-aos="slide-right" data-aos-delay="400">EXPLORE MORE</a>
@@ -283,7 +282,7 @@
                     <h1 class="manufacturing-title" data-aos="fade-up">MANUFACTURING EXCELLENCE</h1>
                     <p class="manufacturing-subtitle" data-aos="fade-up" data-aos-delay="100">Where Expertise Ignites Precision and Artistry!!</p>
                     <p class="manufacturing-description" data-aos="fade-up" data-aos-delay="200">
-                        Radiant Sourcing Limited serves as a Foundation of Manufacturing mastery, where artistry goes beyond equipment to represent accuracy, security, and enablement. 
+                        Radiant Sourcing Limited serves as a Foundation of Manufacturing mastery, where artistry goes beyond equipment to represent accuracy, security, and enablement.
                         From the first material slice to the concluding seam, each phase demonstrates dedication to exceeding professional benchmarks, producing apparel recognized for outstanding craftsmanship, honesty, and creative excellence.
                     </p>
                 </div>
@@ -442,270 +441,39 @@
                 </div>
             </div>
             <div class="row">
-                <!-- Category 1: Knit -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="category-card" data-category="knit" style="cursor: pointer;">
-                        <div class="swiper category-swiper category-swiper-1">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" alt="Knit Product" class="category-product-image">
+                @forelse($categories as $index => $category)
+                    @if($category->products->count() > 0)
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ 200 + ($index * 50) }}">
+                        <a href="{{ route('category', Str::slug($category->name)) }}" class="category-card-link">
+                            <div class="category-card" data-category="{{ Str::slug($category->name) }}" style="cursor: pointer;">
+                                <div class="swiper category-swiper category-swiper-{{ $index + 1 }}">
+                                    <div class="swiper-wrapper">
+                                        @foreach($category->products as $product)
+                                        <div class="swiper-slide">
+                                            @if($product->image)
+                                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="category-product-image">
+                                            @else
+                                                <img src="https://via.placeholder.com/400x500?text={{ urlencode($product->name) }}" alt="{{ $product->name }}" class="category-product-image">
+                                            @endif
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @if($category->products->count() > 1)
+                                    <div class="swiper-button-next category-next-{{ $index + 1 }}"></div>
+                                    <div class="swiper-button-prev category-prev-{{ $index + 1 }}"></div>
+                                    <div class="swiper-pagination category-pagination-{{ $index + 1 }}"></div>
+                                    @endif
                                 </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop" alt="Knit Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=500&fit=crop" alt="Knit Product" class="category-product-image">
-                                </div>
+                                <h4 class="category-name">{{ $category->name }}</h4>
                             </div>
-                            <div class="swiper-button-next category-next-1"></div>
-                            <div class="swiper-button-prev category-prev-1"></div>
-                            <div class="swiper-pagination category-pagination-1"></div>
-                        </div>
-                        <h4 class="category-name">Knit</h4>
+                        </a>
                     </div>
-                </div>
-                <!-- Category 2: Women -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="250">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-2">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop" alt="Woven Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" alt="Woven Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400&h=500&fit=crop" alt="Woven Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-2"></div>
-                            <div class="swiper-button-prev category-prev-2"></div>
-                            <div class="swiper-pagination category-pagination-2"></div>
-                        </div>
-                        <h4 class="category-name">Women</h4>
+                    @endif
+                @empty
+                    <div class="col-12 text-center">
+                        <p class="text-muted">No product categories available yet.</p>
                     </div>
-                </div>
-                <!-- Category 3: Nightwear and Loungewear -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-3">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400&h=500&fit=crop" alt="Nightwear Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=500&fit=crop" alt="Nightwear Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&h=500&fit=crop" alt="Nightwear Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-3"></div>
-                            <div class="swiper-button-prev category-prev-3"></div>
-                            <div class="swiper-pagination category-pagination-3"></div>
-                        </div>
-                        <h4 class="category-name">Nightwear and Loungewear</h4>
-                    </div>
-                </div>
-                <!-- Category 4: Denim -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="350">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-4">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=500&fit=crop" alt="Denim Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" alt="Denim Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop" alt="Denim Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-4"></div>
-                            <div class="swiper-button-prev category-prev-4"></div>
-                            <div class="swiper-pagination category-pagination-4"></div>
-                        </div>
-                        <h4 class="category-name">Denim</h4>
-                    </div>
-                </div>
-                <!-- Category 5: Shirts -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-5">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=500&fit=crop" alt="Shirt Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" alt="Shirt Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop" alt="Shirt Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-5"></div>
-                            <div class="swiper-button-prev category-prev-5"></div>
-                            <div class="swiper-pagination category-pagination-5"></div>
-                        </div>
-                        <h4 class="category-name">Shirts</h4>
-                    </div>
-                </div>
-                <!-- Category 6: Pants -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="450">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-6">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&h=500&fit=crop" alt="Pants Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=500&fit=crop" alt="Pants Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=500&fit=crop" alt="Pants Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-6"></div>
-                            <div class="swiper-button-prev category-prev-6"></div>
-                            <div class="swiper-pagination category-pagination-6"></div>
-                        </div>
-                        <h4 class="category-name">Pants</h4>
-                    </div>
-                </div>
-                <!-- Category 7: T-Shirts -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-7">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" alt="T-Shirt Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&h=500&fit=crop" alt="T-Shirt Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400&h=500&fit=crop" alt="T-Shirt Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-7"></div>
-                            <div class="swiper-button-prev category-prev-7"></div>
-                            <div class="swiper-pagination category-pagination-7"></div>
-                        </div>
-                        <h4 class="category-name">T-Shirts</h4>
-                    </div>
-                </div>
-                <!-- Category 8: Dresses -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="550">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-8">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="Dress Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" alt="Dress Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=500&fit=crop" alt="Dress Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-8"></div>
-                            <div class="swiper-button-prev category-prev-8"></div>
-                            <div class="swiper-pagination category-pagination-8"></div>
-                        </div>
-                        <h4 class="category-name">Dresses</h4>
-                    </div>
-                </div>
-                <!-- Category 9: Jackets -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-9">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop" alt="Jacket Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=500&fit=crop" alt="Jacket Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&h=500&fit=crop" alt="Jacket Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-9"></div>
-                            <div class="swiper-button-prev category-prev-9"></div>
-                            <div class="swiper-pagination category-pagination-9"></div>
-                        </div>
-                        <h4 class="category-name">Jackets</h4>
-                    </div>
-                </div>
-                <!-- Category 10: Activewear -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="650">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-10">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="Activewear Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop" alt="Activewear Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="Activewear Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-10"></div>
-                            <div class="swiper-button-prev category-prev-10"></div>
-                            <div class="swiper-pagination category-pagination-10"></div>
-                        </div>
-                        <h4 class="category-name">Activewear</h4>
-                    </div>
-                </div>
-                <!-- Category 11: Accessories -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="700">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-11">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=400&h=500&fit=crop" alt="Accessory Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=500&fit=crop" alt="Accessory Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop" alt="Accessory Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-11"></div>
-                            <div class="swiper-button-prev category-prev-11"></div>
-                            <div class="swiper-pagination category-pagination-11"></div>
-                        </div>
-                        <h4 class="category-name">Accessories</h4>
-                    </div>
-                </div>
-                <!-- Category 12: Footwear -->
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="750">
-                    <div class="category-card">
-                        <div class="swiper category-swiper category-swiper-12">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=500&fit=crop" alt="Footwear Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=400&h=500&fit=crop" alt="Footwear Product" class="category-product-image">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="Footwear Product" class="category-product-image">
-                                </div>
-                            </div>
-                            <div class="swiper-button-next category-next-12"></div>
-                            <div class="swiper-button-prev category-prev-12"></div>
-                            <div class="swiper-pagination category-pagination-12"></div>
-                        </div>
-                        <h4 class="category-name">Footwear</h4>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -736,7 +504,7 @@
                         We believe that Fashion is not just about Clothing, it's an ever evolving statement, an expression of Identity, Culture context of time and place, perception, aspiration, creativity and innovation, value and belief of individual and community.
                     </p>
                 </div>
-                
+
                 <!-- Right Side - Carousel -->
                 <div class="col-lg-6 about-carousel-wrapper" data-aos="slide-left">
                     <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -751,7 +519,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Slide 2: Ethical Sourcing -->
                             <div class="carousel-item">
                                 <div class="carousel-image-wrapper">
@@ -762,7 +530,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Slide 3: Manufacturing Excellence -->
                             <div class="carousel-item">
                                 <div class="carousel-image-wrapper">
@@ -774,7 +542,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Carousel Controls -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -784,7 +552,7 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
-                        
+
                         <!-- Carousel Indicators -->
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

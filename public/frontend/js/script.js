@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    
+$(document).ready(function () {
+
     // Initialize AOS
     AOS.init({
         duration: 800,
@@ -9,7 +9,7 @@ $(document).ready(function() {
     });
 
     // Navbar Scroll Effect
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
         if ($(window).scrollTop() > 50) {
             $('#mainNavbar').addClass('scrolled');
         } else {
@@ -18,20 +18,20 @@ $(document).ready(function() {
     });
 
     // Smooth scrolling for anchor links
-    $('a[href^="#"]').on('click', function(e) {
+    $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
-        
+
         var target = $(this).attr('href');
         var $target = $(target);
-        
+
         if ($target.length) {
             var navbarHeight = $('.navbar').outerHeight();
             var targetPosition = $target.offset().top - navbarHeight;
-            
+
             $('html, body').animate({
                 scrollTop: targetPosition
             }, 800);
-            
+
             // Close mobile menu if open
             var $navbarCollapse = $('.navbar-collapse');
             if ($navbarCollapse.hasClass('show')) {
@@ -42,13 +42,13 @@ $(document).ready(function() {
 
     // Video autoplay fallback for mobile devices
     var video = $('#heroVideo')[0];
-    
+
     if (video) {
         // Try to play the video (some browsers block autoplay)
         var playPromise = video.play();
-        
+
         if (playPromise !== undefined) {
-            playPromise.catch(function(error) {
+            playPromise.catch(function (error) {
                 console.log('Autoplay was prevented:', error);
                 // You could add a play button overlay here if needed
             });
@@ -56,29 +56,29 @@ $(document).ready(function() {
     }
 
     // Add active class to current nav item based on scroll position
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
         var current = '';
-        
-        $('section[id]').each(function() {
+
+        $('section[id]').each(function () {
             var sectionTop = $(this).offset().top;
             var sectionHeight = $(this).outerHeight();
-            
+
             if ($(window).scrollTop() >= (sectionTop - 200)) {
                 current = $(this).attr('id');
             }
         });
-        
+
         // Remove active from all nav links first
         $('.nav-link').removeClass('active');
-        
+
         // Add active to matching nav link
-        $('.nav-link').each(function() {
+        $('.nav-link').each(function () {
             var href = $(this).attr('href');
             if (href && href === '#' + current) {
                 $(this).addClass('active');
             }
         });
-        
+
         // Handle dropdown parent active state for Products
         if (current === 'products') {
             $('#productsDropdown').addClass('active');
@@ -146,26 +146,33 @@ $(document).ready(function() {
         });
     }
 
-    // Initialize Category Swipers (12 separate carousels)
-    for (let i = 1; i <= 12; i++) {
-        const categorySwiper = new Swiper(`.category-swiper-${i}`, {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: `.category-next-${i}`,
-                prevEl: `.category-prev-${i}`,
-            },
-            pagination: {
-                el: `.category-pagination-${i}`,
-                clickable: true,
-            },
-        });
-    }
+    // Initialize Category Swipers dynamically (finds all category swipers on the page)
+    var categorySwipers = document.querySelectorAll('[class*="category-swiper-"]');
+    categorySwipers.forEach(function (swiperEl) {
+        // Extract the swiper number from the class name
+        var classes = swiperEl.className.split(' ');
+        var swiperClass = classes.find(function (c) { return c.match(/category-swiper-\d+/); });
+        if (swiperClass) {
+            var index = swiperClass.replace('category-swiper-', '');
+            new Swiper(`.category-swiper-${index}`, {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: `.category-next-${index}`,
+                    prevEl: `.category-prev-${index}`,
+                },
+                pagination: {
+                    el: `.category-pagination-${index}`,
+                    clickable: true,
+                },
+            });
+        }
+    });
 
     // Products dropdown hover functionality
     var $productsDropdown = $('.nav-item.dropdown');
@@ -181,12 +188,12 @@ $(document).ready(function() {
     }
 
     // Handle window resize
-    $(window).on('resize', function() {
+    $(window).on('resize', function () {
         isHoverEnabled = window.innerWidth > 992;
     });
 
     // Show dropdown on hover (desktop only)
-    $productsDropdown.on('mouseenter', function() {
+    $productsDropdown.on('mouseenter', function () {
         if (isHoverEnabled) {
             clearTimeout(dropdownTimeout);
             if (dropdownInstance) {
@@ -196,10 +203,10 @@ $(document).ready(function() {
     });
 
     // Hide dropdown on leave with delay (desktop only)
-    $productsDropdown.on('mouseleave', function() {
+    $productsDropdown.on('mouseleave', function () {
         if (isHoverEnabled) {
             var self = this;
-            dropdownTimeout = setTimeout(function() {
+            dropdownTimeout = setTimeout(function () {
                 if (dropdownInstance) {
                     dropdownInstance.hide();
                 }
@@ -208,16 +215,16 @@ $(document).ready(function() {
     });
 
     // Keep dropdown open when hovering over menu (desktop only)
-    $dropdownMenu.on('mouseenter', function() {
+    $dropdownMenu.on('mouseenter', function () {
         if (isHoverEnabled) {
             clearTimeout(dropdownTimeout);
         }
     });
 
-    $dropdownMenu.on('mouseleave', function() {
+    $dropdownMenu.on('mouseleave', function () {
         if (isHoverEnabled) {
             var self = this;
-            dropdownTimeout = setTimeout(function() {
+            dropdownTimeout = setTimeout(function () {
                 if (dropdownInstance) {
                     dropdownInstance.hide();
                 }
@@ -234,59 +241,59 @@ $(document).ready(function() {
             if (activeSlide) {
                 var title = activeSlide.querySelector('.carousel-title');
                 var subtitle = activeSlide.querySelector('.carousel-subtitle');
-                
+
                 if (title) {
                     title.style.animation = 'none';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         title.style.animation = 'fadeInUp 0.8s ease-out 0.3s forwards';
                     }, 10);
                 }
-                
+
                 if (subtitle) {
                     subtitle.style.animation = 'none';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         subtitle.style.animation = 'fadeInUp 0.8s ease-out 0.6s forwards';
                     }, 10);
                 }
             }
         }
-        
+
         // Trigger animation on initial load
-        setTimeout(function() {
+        setTimeout(function () {
             triggerCarouselAnimations();
         }, 300);
-        
-        aboutCarousel.addEventListener('slide.bs.carousel', function(e) {
+
+        aboutCarousel.addEventListener('slide.bs.carousel', function (e) {
             // Reset animations for all slides
             var allTitles = aboutCarousel.querySelectorAll('.carousel-title');
             var allSubtitles = aboutCarousel.querySelectorAll('.carousel-subtitle');
-            
-            allTitles.forEach(function(title) {
+
+            allTitles.forEach(function (title) {
                 title.style.animation = 'none';
                 title.style.opacity = '0';
                 title.style.transform = 'translateY(20px)';
             });
-            
-            allSubtitles.forEach(function(subtitle) {
+
+            allSubtitles.forEach(function (subtitle) {
                 subtitle.style.animation = 'none';
                 subtitle.style.opacity = '0';
                 subtitle.style.transform = 'translateY(20px)';
             });
         });
-        
-        aboutCarousel.addEventListener('slid.bs.carousel', function(e) {
+
+        aboutCarousel.addEventListener('slid.bs.carousel', function (e) {
             // Trigger animations for new active slide
-            setTimeout(function() {
+            setTimeout(function () {
                 triggerCarouselAnimations();
             }, 50);
         });
     }
 
     // Newsletter Form Submission
-    $('#newsletterForm').on('submit', function(e) {
+    $('#newsletterForm').on('submit', function (e) {
         e.preventDefault();
         var email = $(this).find('input[type="email"]').val();
-        
+
         if (email) {
             // Here you would typically send the email to your server
             // For now, we'll just show an alert
@@ -361,7 +368,7 @@ $(document).ready(function() {
     };
 
     // Make category cards clickable - navigate to category page
-    $('.category-card').on('click', function() {
+    $('.category-card').on('click', function () {
         var categoryName = $(this).find('.category-name').text().toLowerCase();
         // Navigate to category page
         window.location.href = 'category.html?category=' + encodeURIComponent(categoryName);

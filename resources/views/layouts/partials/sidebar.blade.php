@@ -1,6 +1,6 @@
 <div class="sidebar" id="sidebar">
     <div class="text-center mb-4">
-        <h4 class="text-white mb-0" id="sidebar-title">Admin Panel</h4>
+        <h4 class="text-white mb-0" id="sidebar-title">Radiant Sourcing</h4>
     </div>
     <nav class="nav flex-column">
         <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
