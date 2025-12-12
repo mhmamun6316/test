@@ -157,7 +157,7 @@
                 <div class="col-lg-12 text-center">
                     <p class="sustainability-quote-text" data-aos="fade-up">"Crafting Tomorrow: Innovative Solutions for a Greener Fashion Industry"</p>
                     <div class="banner-image-wrapper" data-aos="fade-up" data-aos-delay="200">
-                        <img src="{{ asset('frontend/assets/sustainability/6.jpeg" alt="Innovation" class="img-fluid">
+                        <img src="{{ asset('frontend/assets/sustainability/6.jpeg') }}" alt="Innovation" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -278,7 +278,7 @@
     <!-- Section 12: Call to Action -->
     <section class="sustainability-cta-section">
         <div class="sustainability-cta-background">
-            <img src="{{ asset('frontend/assets/sustainability/3.jpeg" alt="Call to Action" class="cta-bg-image">
+            <img src="{{ asset('frontend/assets/sustainability/3.jpeg') }}" alt="Call to Action" class="cta-bg-image">
             <div class="sustainability-cta-overlay"></div>
         </div>
         <div class="sustainability-cta-content">

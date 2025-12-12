@@ -44,12 +44,12 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="ethical-image-box" data-aos="slide-up" data-aos-delay="200">
-                        <img src="{{ asset('frontend/assets/ethical/3.jpeg" alt="Business Ethics" class="img-fluid">
+                        <img src="{{ asset('frontend/assets/ethical/3.jpeg') }}" alt="Business Ethics" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="ethical-image-box" data-aos="slide-up" data-aos-delay="300">
-                        <img src="{{ asset('frontend/assets/ethical/4.jpeg" alt="Quality Control" class="img-fluid">
+                        <img src="{{ asset('frontend/assets/ethical/4.jpeg') }}" alt="Quality Control" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="col-lg-6 ethical-commitment-image">
                     <div class="ethical-image-box" data-aos="slide-left">
-                        <img src="{{ asset('frontend/assets/ethical/5.jpeg" alt="Our Commitment" class="img-fluid">
+                        <img src="{{ asset('frontend/assets/ethical/5.jpeg') }}" alt="Our Commitment" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -168,7 +168,7 @@
                 </div>
                 <div class="col-lg-6 ethical-certifications-image">
                     <div class="ethical-image-box" data-aos="slide-left">
-                        <img src="{{ asset('frontend/assets/ethical/3.jpeg" alt="Certifications" class="img-fluid">
+                        <img src="{{ asset('frontend/assets/ethical/3.jpeg') }}" alt="Certifications" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 ethical-improvement-image">
                     <div class="ethical-image-box" data-aos="slide-right">
-                        <img src="{{ asset('frontend/assets/ethical/4.jpeg" alt="Continuous Improvement" class="img-fluid">
+                        <img src="{{ asset('frontend/assets/ethical/4.jpeg') }}" alt="Continuous Improvement" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6 ethical-improvement-content">
@@ -252,7 +252,7 @@
     <!-- Section 9: Call to Action -->
     <section class="ethical-cta-section">
         <div class="ethical-cta-background">
-            <img src="{{ asset('frontend/assets/ethical/5.jpeg" alt="Call to Action" class="cta-bg-image">
+            <img src="{{ asset('frontend/assets/ethical/5.jpeg') }}" alt="Call to Action" class="cta-bg-image">
             <div class="ethical-cta-overlay"></div>
         </div>
         <div class="ethical-cta-content">

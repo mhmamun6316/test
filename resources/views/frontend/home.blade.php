@@ -53,23 +53,23 @@
                             </div>
                             <ul class="characteristics-list">
                                 <li data-aos="slide-left" data-aos-delay="200">
-                                    <span class="list-icon">âœ¦</span>
+                                    <span class="list-icon">✦</span>
                                     <span class="list-text">Innovative designs that inspire and transform.</span>
                                 </li>
                                 <li data-aos="slide-left" data-aos-delay="300">
-                                    <span class="list-icon">âœ¦</span>
+                                    <span class="list-icon">✦</span>
                                     <span class="list-text">Quality craftsmanship for lasting style.</span>
                                 </li>
                                 <li data-aos="slide-left" data-aos-delay="400">
-                                    <span class="list-icon">âœ¦</span>
+                                    <span class="list-icon">✦</span>
                                     <span class="list-text">Sustainable practices meet premium fashion.</span>
                                 </li>
                                 <li data-aos="slide-left" data-aos-delay="500">
-                                    <span class="list-icon">âœ¦</span>
+                                    <span class="list-icon">✦</span>
                                     <span class="list-text">Modern materials. Minimal footprint. Maximum impact.</span>
                                 </li>
                                 <li data-aos="slide-left" data-aos-delay="600">
-                                    <span class="list-icon">âœ¦</span>
+                                    <span class="list-icon">✦</span>
                                     <span class="list-text">Excellence is our standard, not our goal.</span>
                                 </li>
                             </ul>
@@ -125,7 +125,7 @@
                     <div class="col-lg-12">
                         <p class="parallax-quote" data-aos="fade-up">
                             "Style transcends boundaries, weaving innovation into every thread.<br>
-                            We don't just follow trendsâ€”we craft the future of fashion."
+                            We don't just follow trend we craft the future of fashion."
                         </p>
                     </div>
                 </div>

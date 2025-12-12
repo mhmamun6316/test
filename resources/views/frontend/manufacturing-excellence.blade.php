@@ -5,7 +5,7 @@
 @section('content')
 <section class="manufacturing-hero-section">
         <div class="manufacturing-hero-image">
-            <img src="{{ asset('frontend/assets/excellence/1.jpeg" alt="Manufacturing Excellence" class="hero-zoom-image">
+            <img src="{{ asset('frontend/assets/excellence/1.jpeg') }}" alt="Manufacturing Excellence" class="hero-zoom-image">
         </div>
         <div class="manufacturing-hero-content">
             <div class="container">
@@ -333,7 +333,7 @@
     <!-- Bottom Quote Section -->
     <section class="manufacturing-bottom-section">
         <div class="manufacturing-bottom-background">
-            <img src="{{ asset('frontend/assets/excellence/1.jpeg" alt="Manufacturing Excellence" class="bottom-bg-image">
+            <img src="{{ asset('frontend/assets/excellence/1.jpeg') }}" alt="Manufacturing Excellence" class="bottom-bg-image">
             <div class="manufacturing-bottom-overlay"></div>
         </div>
         <div class="manufacturing-bottom-content">
