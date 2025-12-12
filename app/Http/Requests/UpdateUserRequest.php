@@ -22,7 +22,7 @@ class UpdateUserRequest extends FormRequest
             'password' => ['nullable', 'confirmed', Password::min(8)],
             'status' => 'required|in:active,inactive',
             'approval_status' => 'required|in:pending,approved,rejected',
-            'roles' => 'array',
+            'roles' => 'nullable|array',
             'roles.*' => 'exists:roles,id',
             'profile_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];

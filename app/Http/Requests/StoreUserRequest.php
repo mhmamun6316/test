@@ -19,6 +19,8 @@ class StoreUserRequest extends FormRequest
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Password::min(8)],
             'status' => 'required|in:active,inactive',
+            'roles' => 'nullable|array',
+            'roles.*' => 'exists:roles,id',
             'profile_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }

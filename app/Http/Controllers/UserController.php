@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
@@ -105,7 +106,8 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        return view('users.create', compact('roles'));
     }
 
     public function store(StoreUserRequest $request)
@@ -117,7 +119,12 @@ class UserController extends Controller
             $data['profile_photo'] = $request->file('profile_photo')->store('profile-photos', 'public');
         }
 
-        User::create($data);
+        $user = User::create($data);
+
+        if ($request->has('roles')) {
+            $roles = Role::whereIn('id', $request->roles)->get();
+            $user->assignRole($roles);
+        }
 
         return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
@@ -129,7 +136,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $roles = Role::all();
+        $userRoles = $user->roles->pluck('id')->toArray();
+        return view('users.edit', compact('user', 'roles', 'userRoles'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -150,6 +159,13 @@ class UserController extends Controller
         }
 
         $user->update($data);
+
+        if ($request->has('roles')) {
+            $roles = Role::whereIn('id', $request->roles)->get();
+            $user->syncRoles($roles);
+        } else {
+            $user->syncRoles([]); // Remove all roles if none selected
+        }
 
         return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }

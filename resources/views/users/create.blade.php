@@ -97,6 +97,19 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">{{ __('common.roles') }}</label>
+                        <select class="form-select select2" name="roles[]" multiple="multiple" id="roles" data-placeholder="{{ __('common.select_roles') }}">
+                            @foreach($roles as $role)
+                                <option value="{{ $role->id }}">{{ ucfirst($role->name) }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <div class="d-flex justify-content-end gap-2">
                 <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancel</a>
                 <button type="submit" class="btn btn-primary">
@@ -126,6 +139,11 @@
     }
 
     $(document).ready(function() {
+        $('.select2').select2({
+            theme: 'bootstrap-5',
+            width: '100%'
+        });
+
         // Custom validation method for file size (2MB max)
         $.validator.addMethod('filesize', function(value, element, param) {
             if (element.files.length === 0) {

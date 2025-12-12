@@ -112,6 +112,19 @@
                 </div>
             </div>
             
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">{{ __('common.roles') }}</label>
+                        <select class="form-select select2" name="roles[]" multiple="multiple" id="roles" data-placeholder="{{ __('common.select_roles') }}">
+                            @foreach($roles as $role)
+                                <option value="{{ $role->id }}" {{ in_array($role->id, $userRoles) ? 'selected' : '' }}>{{ ucfirst($role->name) }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <div class="d-flex justify-content-end gap-2">
                 <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancel</a>
                 <button type="submit" class="btn btn-primary">
@@ -135,6 +148,12 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+    $(document).ready(function() {
+        $('.select2').select2({
+            theme: 'bootstrap-5',
+            width: '100%'
+        });
+    });
 </script>
 @endpush
 
