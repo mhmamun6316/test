@@ -3,24 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        // User Statistics
         $totalUsers = User::count();
         $activeUsers = User::where('status', 'active')->count();
-        $inactiveUsers = User::where('status', 'inactive')->count();
-        $newUsersToday = User::whereDate('created_at', today())->count();
         $recentUsers = User::latest()->take(5)->get();
+
+        // Product Statistics
+        $totalProducts = Product::count();
+        $activeProducts = Product::where('status', 1)->count();
+
+        // Category Statistics
+        $totalCategories = ProductCategory::count();
+        $activeCategories = ProductCategory::where('status', 1)->count();
 
         return view('dashboard', compact(
             'totalUsers',
             'activeUsers',
-            'inactiveUsers',
-            'newUsersToday',
-            'recentUsers'
+            'recentUsers',
+            'totalProducts',
+            'activeProducts',
+            'totalCategories',
+            'activeCategories'
         ));
     }
 }

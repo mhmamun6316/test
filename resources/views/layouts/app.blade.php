@@ -316,6 +316,10 @@
                     <i class="bi bi-list"></i>
                 </button>
                 <div class="d-flex align-items-center gap-2">
+                    <!-- Visit Site Button -->
+                    <a href="{{ route('home') }}" target="_blank" class="btn btn-sm btn-success">
+                        <i class="bi bi-globe me-1"></i>Visit Site
+                    </a>
                     <!-- Language Switcher -->
                     <div class="dropdown">
                         <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">

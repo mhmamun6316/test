@@ -7,29 +7,54 @@
     <h2 class="mb-0">{{ __('common.dashboard') }}</h2>
 </div>
 
+<!-- User Statistics Row -->
+<h5 class="mb-3"><i class="bi bi-people me-2"></i>User Statistics</h5>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="stat-card blue">
             <h3>{{ $totalUsers }}</h3>
             <p><i class="bi bi-people me-2"></i>{{ __('common.total_users') }}</p>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="stat-card green">
             <h3>{{ $activeUsers }}</h3>
             <p><i class="bi bi-check-circle me-2"></i>{{ __('common.active_users') }}</p>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="stat-card orange">
-            <h3>{{ $inactiveUsers }}</h3>
+            <h3>{{ $totalUsers - $activeUsers }}</h3>
             <p><i class="bi bi-x-circle me-2"></i>{{ __('common.inactive_users') }}</p>
         </div>
     </div>
+</div>
+
+<!-- Product Statistics Row -->
+<h5 class="mb-3 mt-4"><i class="bi bi-box-seam me-2"></i>Product Statistics</h5>
+<div class="row">
     <div class="col-md-3">
-        <div class="stat-card red">
-            <h3>{{ $newUsersToday }}</h3>
-            <p><i class="bi bi-person-plus me-2"></i>{{ __('common.new_users_today') }}</p>
+        <div class="stat-card" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+            <h3>{{ $totalCategories }}</h3>
+            <p><i class="bi bi-tags me-2"></i>Total Categories</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);">
+            <h3>{{ $activeCategories }}</h3>
+            <p><i class="bi bi-check2-circle me-2"></i>Active Categories</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+            <h3>{{ $totalProducts }}</h3>
+            <p><i class="bi bi-box me-2"></i>Total Products</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+            <h3>{{ $activeProducts }}</h3>
+            <p><i class="bi bi-box-seam me-2"></i>Active Products</p>
         </div>
     </div>
 </div>

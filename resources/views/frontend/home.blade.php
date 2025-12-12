@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1 class="evolution-title" data-aos="fade-up">Fashion Evolution</h1>
-                    <p class="evolution-subtitle" data-aos="fade-up" data-aos-delay="100">Crafting Tomorrow's Style â€” Innovation Meets Elegance</p>
+                    <p class="evolution-subtitle" data-aos="fade-up" data-aos-delay="100">Crafting Tomorrow's Style Innovation Meets Elegance</p>
                     <p class="evolution-description" data-aos="fade-up" data-aos-delay="200">
                         Discover the future of fashion with Radiant Sourcing, where creativity and sustainability converge to redefine modern style.
                         We blend exceptional craftsmanship with advanced technology to deliver fashion-forward solutions that inspire confidence and celebrate individuality.
@@ -297,7 +297,7 @@
                         <h3 class="manufacturing-image-title" data-aos="slide-left">Fitting/Garment Technical Support</h3>
                         <p class="manufacturing-image-subtitle" data-aos="slide-left" data-aos-delay="100">Elevating Wearability, Style and Functionality...!!</p>
                         <p class="manufacturing-image-description" data-aos="slide-left" data-aos-delay="200">
-                            Apparel is crafted to appear magnificent, conform perfectly, and flow with natural elegance. Each elementâ€”workmanship, sizing, and visual appealâ€”is carefully perfected by a committed internal technical group. Customized fitting guidance and technical help are offered to guarantee requirements are surpassed, improving ease, design, and performance for enhanced client contentment.
+                            Apparel is crafted to appear magnificent, conform perfectly, and flow with natural elegance. Each element workmanship, sizing, and visual appeal is carefully perfected by a committed internal technical group. Customized fitting guidance and technical help are offered to guarantee requirements are surpassed, improving ease, design, and performance for enhanced client contentment.
                         </p>
                     </div>
                     <div class="col-lg-6 manufacturing-image-right">
@@ -373,7 +373,7 @@
                         <h3 class="manufacturing-image-title" data-aos="slide-left">Quality Assurance</h3>
                         <p class="manufacturing-image-subtitle" data-aos="slide-left" data-aos-delay="100">Redefining Excellence in Craftsmanship and Enduring Durability</p>
                         <p class="manufacturing-image-description" data-aos="slide-left" data-aos-delay="200">
-                            Dedicated to maintaining flawless criteria through strict quality management, we guarantee each apparel surpasses requirements for workmanship and resilience. In partnership with our associates, we implement sophisticated proceduresâ€”including laboratory examinations and on-location assessmentsâ€”at each phase of manufacturing, strengthening trust in the honesty and superiority of our merchandise.
+                            Dedicated to maintaining flawless criteria through strict quality management, we guarantee each apparel surpasses requirements for workmanship and resilience. In partnership with our associates, we implement sophisticated procedures including laboratory examinations and on-location assessments at each phase of manufacturing, strengthening trust in the honesty and superiority of our merchandise.
                         </p>
                         <a href="#explore" class="btn btn-manufacturing" data-aos="slide-left" data-aos-delay="300">EXPLORE MORE</a>
                     </div>
@@ -399,7 +399,7 @@
                         <h3 class="manufacturing-image-title" data-aos="slide-right">Fair Traceability</h3>
                         <p class="manufacturing-image-subtitle" data-aos="slide-right" data-aos-delay="100">Transparency across the Supply Chain!!</p>
                         <p class="manufacturing-image-description" data-aos="slide-right" data-aos-delay="200">
-                            Instant Notifications Advance Openness, Morality, and Responsibilityâ€”Building Confidence Throughout the Supply Network. We emphasize equitable tracking by delivering instant notifications at each phase of the item pathâ€”from basic material procurement to productionâ€”guaranteeing moral conduct and supply network responsibility.
+                            Instant Notifications Advance Openness, Morality, and Responsibility Building Confidence Throughout the Supply Network. We emphasize equitable tracking by delivering instant notifications at each phase of the item path from basic material procurement to production guaranteeing moral conduct and supply network responsibility.
                         </p>
                         <a href="#explore" class="btn btn-manufacturing" data-aos="slide-right" data-aos-delay="300">EXPLORE MORE</a>
                     </div>
