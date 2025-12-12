@@ -7,10 +7,18 @@
             <i class="bi bi-speedometer2"></i>
             <span>{{ __('common.dashboard') }}</span>
         </a>
+        @can('users.view')
         <a class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}" href="{{ route('users.index') }}">
             <i class="bi bi-people"></i>
             <span>{{ __('common.users') }}</span>
         </a>
+        @endcan
+        @can('roles.view')
+        <a class="nav-link {{ request()->routeIs('roles.*') ? 'active' : '' }}" href="{{ route('roles.index') }}">
+            <i class="bi bi-shield-lock"></i>
+            <span>{{ __('common.roles') }}</span>
+        </a>
+        @endcan
         <a class="nav-link {{ request()->routeIs('product-categories.*') ? 'active' : '' }}" href="{{ route('product-categories.index') }}">
             <i class="bi bi-tags"></i>
             <span>{{ __('common.product_categories') }}</span>

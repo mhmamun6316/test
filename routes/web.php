@@ -43,6 +43,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/users/{user}/approve', [UserController::class, 'approve'])->name('users.approve');
     Route::post('/users/{user}/reject', [UserController::class, 'reject'])->name('users.reject');
 
+    // Role Management Routes
+    Route::resource('roles', \App\Http\Controllers\RoleController::class);
+
     // Product Category Management Routes
     Route::resource('product-categories', ProductCategoryController::class);
     Route::post('/product-categories/{productCategory}/toggle-status', [ProductCategoryController::class, 'toggleStatus'])->name('product-categories.toggle-status');

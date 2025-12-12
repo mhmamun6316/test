@@ -70,5 +70,10 @@ return [
     'image' => 'Image',
     'description' => 'Description',
     'select' => 'Select',
+    'name' => 'Name',
+    'create_role' => 'Create Role',
+    'edit_role' => 'Edit Role',
+    'view_role' => 'Role Details',
+    'update' => 'Update',
 ];
 

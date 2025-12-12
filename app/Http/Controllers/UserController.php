@@ -12,6 +12,14 @@ use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:users.view')->only(['index', 'show']);
+        $this->middleware('permission:users.create')->only(['create', 'store']);
+        $this->middleware('permission:users.edit')->only(['edit', 'update', 'toggleStatus']);
+        $this->middleware('permission:users.delete')->only(['destroy']);
+        $this->middleware('permission:users.approve')->only(['approve', 'reject']);
+    }
 
     public function index(Request $request)
     {
@@ -48,13 +56,19 @@ class UserController extends Controller
                 })
                 ->addColumn('actions', function ($user) {
                     $csrf = csrf_token();
-                    $actions = '<a href="' . route('users.show', $user->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
-                            <i class="bi bi-eye"></i></a>';
+                    $actions = '';
 
-                    $actions .= '<a href="' . route('users.edit', $user->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
-                            <i class="bi bi-pencil"></i></a>';
+                    if (auth()->user()->can('users.view')) {
+                        $actions .= '<a href="' . route('users.show', $user->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
+                                <i class="bi bi-eye"></i></a>';
+                    }
 
-                    if ($user->approval_status === 'pending') {
+                    if (auth()->user()->can('users.edit')) {
+                        $actions .= '<a href="' . route('users.edit', $user->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
+                                <i class="bi bi-pencil"></i></a>';
+                    }
+
+                    if (auth()->user()->can('users.approve') && $user->approval_status === 'pending') {
                         $actions .= '<form action="' . route('users.approve', $user->id) . '" method="POST" style="display:inline;" onsubmit="return confirm(\'' . __('common.are_you_sure') . ' ' . __('common.approve') . ' this user?\')">
                                 <input type="hidden" name="_token" value="' . $csrf . '">
                                 <button type="submit" class="btn btn-sm btn-success me-1" title="' . __('common.approve') . '">
@@ -69,8 +83,10 @@ class UserController extends Controller
                             </form>';
                     }
 
-                    $actions .= '<button onclick="deleteUser(' . $user->id . ')" class="btn btn-sm btn-danger" title="' . __('common.delete') . '">
-                            <i class="bi bi-trash"></i></button>';
+                    if (auth()->user()->can('users.delete')) {
+                        $actions .= '<button onclick="deleteUser(' . $user->id . ')" class="btn btn-sm btn-danger" title="' . __('common.delete') . '">
+                                <i class="bi bi-trash"></i></button>';
+                    }
 
                     return $actions;
                 })
