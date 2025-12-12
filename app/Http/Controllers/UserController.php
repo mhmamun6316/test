@@ -60,23 +60,23 @@ class UserController extends Controller
                     $actions = '';
 
                     if (auth()->user()->can('users.view')) {
-                        $actions .= '<a href="' . route('users.show', $user->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
+                        $actions .= '<a href="' . route('admin.users.show', $user->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
                                 <i class="bi bi-eye"></i></a>';
                     }
 
                     if (auth()->user()->can('users.edit')) {
-                        $actions .= '<a href="' . route('users.edit', $user->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
+                        $actions .= '<a href="' . route('admin.users.edit', $user->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
                                 <i class="bi bi-pencil"></i></a>';
                     }
 
                     if (auth()->user()->can('users.approve') && $user->approval_status === 'pending') {
-                        $actions .= '<form action="' . route('users.approve', $user->id) . '" method="POST" style="display:inline;" onsubmit="return confirm(\'' . __('common.are_you_sure') . ' ' . __('common.approve') . ' this user?\')">
+                        $actions .= '<form action="' . route('admin.users.approve', $user->id) . '" method="POST" style="display:inline;" onsubmit="return confirm(\'' . __('common.are_you_sure') . ' ' . __('common.approve') . ' this user?\')">
                                 <input type="hidden" name="_token" value="' . $csrf . '">
                                 <button type="submit" class="btn btn-sm btn-success me-1" title="' . __('common.approve') . '">
                                     <i class="bi bi-check-circle"></i>
                                 </button>
                             </form>
-                            <form action="' . route('users.reject', $user->id) . '" method="POST" style="display:inline;" onsubmit="return confirm(\'' . __('common.are_you_sure') . ' ' . __('common.reject') . ' this user?\')">
+                            <form action="' . route('admin.users.reject', $user->id) . '" method="POST" style="display:inline;" onsubmit="return confirm(\'' . __('common.are_you_sure') . ' ' . __('common.reject') . ' this user?\')">
                                 <input type="hidden" name="_token" value="' . $csrf . '">
                                 <button type="submit" class="btn btn-sm btn-danger me-1" title="' . __('common.reject') . '">
                                     <i class="bi bi-x-circle"></i>
@@ -126,7 +126,7 @@ class UserController extends Controller
             $user->assignRole($roles);
         }
 
-        return redirect()->route('users.index')->with('success', 'User created successfully.');
+        return redirect()->route('admin.users.index')->with('success', 'User created successfully.');
     }
 
     public function show(User $user)
@@ -167,7 +167,7 @@ class UserController extends Controller
             $user->syncRoles([]); // Remove all roles if none selected
         }
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        return redirect()->route('admin.users.index')->with('success', 'User updated successfully.');
     }
 
     public function destroy(User $user)
@@ -178,7 +178,7 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        return redirect()->route('admin.users.index')->with('success', 'User deleted successfully.');
     }
 
     public function toggleStatus(Request $request, User $user)
@@ -198,7 +198,7 @@ class UserController extends Controller
         $user->approval_status = 'approved';
         $user->save();
 
-        return redirect()->route('users.index')->with('success', __('common.user_approved'));
+        return redirect()->route('admin.users.index')->with('success', __('common.user_approved'));
     }
 
     public function reject(User $user)
@@ -206,6 +206,6 @@ class UserController extends Controller
         $user->approval_status = 'rejected';
         $user->save();
 
-        return redirect()->route('users.index')->with('success', __('common.user_rejected'));
+        return redirect()->route('admin.users.index')->with('success', __('common.user_rejected'));
     }
 }

@@ -6,10 +6,10 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">{{ __('common.view') }} {{ __('common.users') }}</h2>
     <div>
-        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning me-2">
+        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning me-2">
             <i class="bi bi-pencil me-2"></i>{{ __('common.edit') }}
         </a>
-        <a href="{{ route('users.index') }}" class="btn btn-secondary">
+        <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
             <i class="bi bi-arrow-left me-2"></i>{{ __('common.back') }}
         </a>
     </div>

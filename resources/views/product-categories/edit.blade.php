@@ -5,14 +5,14 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">{{ __('common.edit') }} {{ __('common.product_categories') }}</h2>
-    <a href="{{ route('product-categories.index') }}" class="btn btn-secondary">
+    <a href="{{ route('admin.product-categories.index') }}" class="btn btn-secondary">
         <i class="bi bi-arrow-left me-2"></i>{{ __('common.back') }}
     </a>
 </div>
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('product-categories.update', $productCategory->id) }}" method="POST">
+        <form action="{{ route('admin.product-categories.update', $productCategory->id) }}" method="POST">
             @csrf
             @method('PUT')
             
@@ -53,7 +53,7 @@
             </div>
             
             <div class="d-flex justify-content-end gap-2">
-                <a href="{{ route('product-categories.index') }}" class="btn btn-secondary">{{ __('common.cancel') }}</a>
+                <a href="{{ route('admin.product-categories.index') }}" class="btn btn-secondary">{{ __('common.cancel') }}</a>
                 <button type="submit" class="btn btn-primary">
                     <i class="bi bi-save me-2"></i>{{ __('common.save') }}
                 </button>

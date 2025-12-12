@@ -29,10 +29,10 @@ class ProductCategoryController extends Controller
                     return $category->created_at->format('M d, Y');
                 })
                 ->addColumn('actions', function ($category) {
-                    $actions = '<a href="' . route('product-categories.show', $category->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
+                    $actions = '<a href="' . route('admin.product-categories.show', $category->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
                             <i class="bi bi-eye"></i></a>';
 
-                    $actions .= '<a href="' . route('product-categories.edit', $category->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
+                    $actions .= '<a href="' . route('admin.product-categories.edit', $category->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
                             <i class="bi bi-pencil"></i></a>';
 
                     $actions .= '<button onclick="deleteCategory(' . $category->id . ')" class="btn btn-sm btn-danger" title="' . __('common.delete') . '">
@@ -59,7 +59,7 @@ class ProductCategoryController extends Controller
     {
         ProductCategory::create($request->validated());
 
-        return redirect()->route('product-categories.index')->with('success', __('common.category_created'));
+        return redirect()->route('admin.product-categories.index')->with('success', __('common.category_created'));
     }
 
     public function show(ProductCategory $productCategory)
@@ -77,14 +77,14 @@ class ProductCategoryController extends Controller
     {
         $productCategory->update($request->validated());
 
-        return redirect()->route('product-categories.index')->with('success', __('common.category_updated'));
+        return redirect()->route('admin.product-categories.index')->with('success', __('common.category_updated'));
     }
 
     public function destroy(ProductCategory $productCategory)
     {
         $productCategory->delete();
 
-        return redirect()->route('product-categories.index')->with('success', __('common.category_deleted'));
+        return redirect()->route('admin.product-categories.index')->with('success', __('common.category_deleted'));
     }
 
     public function toggleStatus(Request $request, ProductCategory $productCategory)

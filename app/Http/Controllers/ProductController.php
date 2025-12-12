@@ -46,10 +46,10 @@ class ProductController extends Controller
                     return $product->created_at->format('M d, Y');
                 })
                 ->addColumn('actions', function ($product) {
-                    $actions = '<a href="' . route('products.show', $product->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
+                    $actions = '<a href="' . route('admin.products.show', $product->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
                             <i class="bi bi-eye"></i></a>';
 
-                    $actions .= '<a href="' . route('products.edit', $product->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
+                    $actions .= '<a href="' . route('admin.products.edit', $product->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
                             <i class="bi bi-pencil"></i></a>';
 
                     $actions .= '<button onclick="deleteProduct(' . $product->id . ')" class="btn btn-sm btn-danger" title="' . __('common.delete') . '">
@@ -83,7 +83,7 @@ class ProductController extends Controller
 
         Product::create($data);
 
-        return redirect()->route('products.index')->with('success', __('common.product_created'));
+        return redirect()->route('admin.products.index')->with('success', __('common.product_created'));
     }
 
     public function show(Product $product)
@@ -111,7 +111,7 @@ class ProductController extends Controller
 
         $product->update($data);
 
-        return redirect()->route('products.index')->with('success', __('common.product_updated'));
+        return redirect()->route('admin.products.index')->with('success', __('common.product_updated'));
     }
 
     public function destroy(Product $product)
@@ -122,7 +122,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', __('common.product_deleted'));
+        return redirect()->route('admin.products.index')->with('success', __('common.product_deleted'));
     }
 
     public function toggleStatus(Request $request, Product $product)

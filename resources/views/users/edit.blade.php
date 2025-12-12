@@ -5,14 +5,14 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">{{ __('common.edit') }} {{ __('common.users') }}</h2>
-    <a href="{{ route('users.index') }}" class="btn btn-secondary">
+    <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
         <i class="bi bi-arrow-left me-2"></i>{{ __('common.back') }}
     </a>
 </div>
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             
@@ -126,7 +126,7 @@
             </div>
 
             <div class="d-flex justify-content-end gap-2">
-                <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Cancel</a>
                 <button type="submit" class="btn btn-primary">
                     <i class="bi bi-save me-2"></i>Update User
                 </button>

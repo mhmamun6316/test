@@ -5,14 +5,14 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">{{ __('common.create_role') }}</h2>
-    <a href="{{ route('roles.index') }}" class="btn btn-secondary">
+    <a href="{{ route('admin.roles.index') }}" class="btn btn-secondary">
         <i class="bi bi-arrow-left me-2"></i>{{ __('common.back') }}
     </a>
 </div>
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('roles.store') }}" method="POST">
+        <form action="{{ route('admin.roles.store') }}" method="POST">
             @csrf
             
             <div class="mb-4">

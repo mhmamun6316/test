@@ -5,7 +5,7 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">{{ __('common.products') }}</h2>
-    <a href="{{ route('products.create') }}" class="btn btn-primary">
+    <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
         <i class="bi bi-plus-circle me-2"></i>{{ __('common.add_new') }}
     </a>
 </div>
@@ -42,7 +42,7 @@
             serverSide: true,
             scrollX: false,
             autoWidth: true,
-            ajax: "{{ route('products.index') }}",
+            ajax: "{{ route('admin.products.index') }}",
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                 { data: 'image', name: 'image', orderable: false, searchable: false },

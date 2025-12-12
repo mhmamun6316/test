@@ -35,12 +35,12 @@ class RoleController extends Controller
                     $actions = '';
                     
                     if (auth()->user()->can('roles.view')) {
-                        $actions .= '<a href="' . route('roles.show', $role->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
+                        $actions .= '<a href="' . route('admin.roles.show', $role->id) . '" class="btn btn-sm btn-info me-1" title="' . __('common.view') . '">
                                 <i class="bi bi-eye"></i></a>';
                     }
 
                     if ($role->name !== 'admin' && auth()->user()->can('roles.edit')) {
-                        $actions .= '<a href="' . route('roles.edit', $role->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
+                        $actions .= '<a href="' . route('admin.roles.edit', $role->id) . '" class="btn btn-sm btn-warning me-1" title="' . __('common.edit') . '">
                                 <i class="bi bi-pencil"></i></a>';
                     }
 
@@ -80,7 +80,7 @@ class RoleController extends Controller
             $role->syncPermissions($request->permissions);
             
             DB::commit();
-            return redirect()->route('roles.index')->with('success', 'Role created successfully.');
+            return redirect()->route('admin.roles.index')->with('success', 'Role created successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'Error creating role: ' . $e->getMessage());
@@ -128,7 +128,7 @@ class RoleController extends Controller
             $role->syncPermissions($request->permissions);
             
             DB::commit();
-            return redirect()->route('roles.index')->with('success', 'Role updated successfully.');
+            return redirect()->route('admin.roles.index')->with('success', 'Role updated successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'Error updating role: ' . $e->getMessage());

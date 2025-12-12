@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">{{ __('common.role_management') }}</h2>
     @can('roles.create')
-    <a href="{{ route('roles.create') }}" class="btn btn-primary">
+    <a href="{{ route('admin.roles.create') }}" class="btn btn-primary">
         <i class="bi bi-plus-circle me-2"></i>{{ __('common.add_new') }}
     </a>
     @endcan
@@ -38,7 +38,7 @@
         $('#rolesTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('roles.index') }}",
+            ajax: "{{ route('admin.roles.index') }}",
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                 { data: 'name', name: 'name' },

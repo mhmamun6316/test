@@ -5,8 +5,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,10 +34,21 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 
-// Protected Routes
-Route::middleware('auth')->group(function () {
+// ============================================
+// FRONTEND ROUTES (Public)
+// ============================================
+Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('/sustainability', [FrontendController::class, 'sustainability'])->name('sustainability');
+Route::get('/ethical-sourcing', [FrontendController::class, 'ethicalSourcing'])->name('ethical-sourcing');
+Route::get('/manufacturing-excellence', [FrontendController::class, 'manufacturingExcellence'])->name('manufacturing-excellence');
+Route::get('/category/{slug?}', [FrontendController::class, 'category'])->name('category');
+
+// ============================================
+// ADMIN ROUTES (Protected)
+// ============================================
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     // User Management Routes
     Route::resource('users', UserController::class);
@@ -44,7 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/users/{user}/reject', [UserController::class, 'reject'])->name('users.reject');
 
     // Role Management Routes
-    Route::resource('roles', \App\Http\Controllers\RoleController::class);
+    Route::resource('roles', RoleController::class);
 
     // Product Category Management Routes
     Route::resource('product-categories', ProductCategoryController::class);

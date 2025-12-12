@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">{{ __('common.user_management') }}</h2>
     @can('users.create')
-    <a href="{{ route('users.create') }}" class="btn btn-primary">
+    <a href="{{ route('admin.users.create') }}" class="btn btn-primary">
         <i class="bi bi-plus-circle me-2"></i>{{ __('common.add_new') }}
     </a>
     @endcan
@@ -43,7 +43,7 @@
             serverSide: true,
             scrollX: false,
             autoWidth: true,
-            ajax: "{{ route('users.index') }}",
+            ajax: "{{ route('admin.users.index') }}",
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                 { data: 'profile_photo', name: 'profile_photo', orderable: false, searchable: false },

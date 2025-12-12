@@ -344,7 +344,7 @@
                             <span class="me-2">{{ auth()->user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{{ route('users.show', auth()->id()) }}"><i class="bi bi-person me-2"></i>{{ __('common.profile') }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.users.show', auth()->id()) }}"><i class="bi bi-person me-2"></i>{{ __('common.profile') }}</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">

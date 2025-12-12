@@ -6,10 +6,10 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">{{ __('common.view') }} {{ __('common.product_categories') }}</h2>
     <div>
-        <a href="{{ route('product-categories.edit', $productCategory->id) }}" class="btn btn-warning me-2">
+        <a href="{{ route('admin.product-categories.edit', $productCategory->id) }}" class="btn btn-warning me-2">
             <i class="bi bi-pencil me-2"></i>{{ __('common.edit') }}
         </a>
-        <a href="{{ route('product-categories.index') }}" class="btn btn-secondary">
+        <a href="{{ route('admin.product-categories.index') }}" class="btn btn-secondary">
             <i class="bi bi-arrow-left me-2"></i>{{ __('common.back') }}
         </a>
     </div>
