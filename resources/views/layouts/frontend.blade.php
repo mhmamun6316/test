@@ -40,6 +40,16 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            offset: 100,
+            once: true
+        });
+    </script>
+    
     @stack('scripts')
 </body>
 </html>

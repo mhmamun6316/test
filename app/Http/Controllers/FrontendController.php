@@ -58,4 +58,9 @@ class FrontendController extends Controller
         
         return view('frontend.category', compact('categories', 'currentCategory', 'products', 'slug'));
     }
+
+    public function about()
+    {
+        return view('frontend.about');
+    }
 }

@@ -41,6 +41,10 @@ Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/sustainability', [FrontendController::class, 'sustainability'])->name('sustainability');
 Route::get('/ethical-sourcing', [FrontendController::class, 'ethicalSourcing'])->name('ethical-sourcing');
 Route::get('/manufacturing-excellence', [FrontendController::class, 'manufacturingExcellence'])->name('manufacturing-excellence');
+
+// About Page (single page with sections)
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+
 Route::get('/category/{slug?}', [FrontendController::class, 'category'])->name('category');
 
 // ============================================
