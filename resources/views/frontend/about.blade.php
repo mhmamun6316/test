@@ -3,8 +3,22 @@
 @section('title', 'About Us - Radiant Sourcing')
 
 @section('content')
-
-@foreach($sections as $section)
+    <!-- About Hero Section -->
+    <section class="about-hero-section">
+        <div class="about-hero-image">
+            <img src="{{ asset('frontend/assets/about-us/pexels-rachel-claire-5864245.jpg') }}" alt="About Us" class="hero-zoom-image">
+        </div>
+        <div class="about-hero-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="about-hero-title" data-aos="fade-up">About Us</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @foreach($sections as $section)
     @switch($section->type)
         @case('intro')
             <!-- Welcome/Intro Section -->

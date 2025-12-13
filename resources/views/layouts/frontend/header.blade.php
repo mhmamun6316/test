@@ -5,12 +5,12 @@
         <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('frontend/assets/logo.svg') }}" alt="Radiant Design" height="50">
         </a>
-        
+
         <!-- Mobile Toggle Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <!-- Menu Items -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
@@ -23,8 +23,6 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
                         <li><a class="dropdown-item" href="{{ route('about') }}#overview">Overview</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('about') }}#mission">Mission</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ route('about') }}#services">Services</a></li>
                         <li><hr class="dropdown-divider"></li>
