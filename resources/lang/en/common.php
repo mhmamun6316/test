@@ -26,6 +26,8 @@ return [
     'search' => 'Search',
     'no_data' => 'No data available',
     'success' => 'Success',
+    'left' => 'Left',
+    'right' => 'Right',
     'error' => 'Error',
     'are_you_sure' => 'Are you sure?',
     'user_management' => 'User Management',

@@ -45,6 +45,18 @@ class PermissionSeeder extends Seeder
             'products.create',
             'products.edit',
             'products.delete',
+
+            // About Sections Group
+            'about_sections.view',
+            'about_sections.create',
+            'about_sections.edit',
+            'about_sections.delete',
+
+            // Services (Flip Cards) Group
+            'services.view',
+            'services.create',
+            'services.edit',
+            'services.delete',
         ];
 
         foreach ($permissions as $permission) {

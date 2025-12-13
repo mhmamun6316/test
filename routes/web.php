@@ -70,4 +70,12 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Product Management Routes
     Route::resource('products', ProductController::class);
     Route::post('/products/{product}/toggle-status', [ProductController::class, 'toggleStatus'])->name('products.toggle-status');
+
+    // About Sections Management
+    Route::resource('about-sections', \App\Http\Controllers\Admin\AboutSectionController::class);
+    Route::post('/about-sections/{aboutSection}/toggle-status', [\App\Http\Controllers\Admin\AboutSectionController::class, 'toggleStatus'])->name('about-sections.toggle-status');
+    
+    // Services (Flip Cards) Management
+    Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
+    Route::post('/services/{service}/toggle-status', [\App\Http\Controllers\Admin\ServiceController::class, 'toggleStatus'])->name('services.toggle-status');
 });

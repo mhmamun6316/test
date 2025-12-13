@@ -61,6 +61,14 @@ class FrontendController extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+        $sections = \App\Models\AboutSection::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+            
+        $services = \App\Models\Service::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+            
+        return view('frontend.about', compact('sections', 'services'));
     }
 }
