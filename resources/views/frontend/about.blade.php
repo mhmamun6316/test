@@ -83,68 +83,41 @@
                 </div>
             </section>
             @break
-
-        @case('services')
-            <!-- Services Grid (Flip Cards) -->
-            <section class="about-services-section" id="services">
-                <div class="container">
-                    @if($section->title)
-                        <div class="row mb-5">
-                            <div class="col-lg-12 text-center" data-aos="fade-up">
-                                <h2 class="section-title">{{ $section->title }}</h2>
-                                @if($section->content)
-                                    <div class="section-description">{!! $section->content !!}</div>
-                                @endif
-                            </div>
-                        </div>
-                    @endif
-
-                    <div class="row">
-                        @foreach($services as $service)
-                            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <img src="{{ asset($service->front_image) }}" alt="{{ $service->front_title }}" style="width:100%;height:100%;object-fit:cover;">
-                                            <div class="flip-card-front-overlay">
-                                                <h3 class="flip-card-title">{{ $service->front_title }}</h3>
-                                                @if($service->front_description)
-                                                    <p class="mb-0 text-white-50">{!! $service->front_description !!}</p>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="flip-card-back" style="{{ $service->back_image ? 'background-image: url('.asset($service->back_image).'); background-size: cover;' : '' }}">
-                                            <div class="flip-card-back-overlay"></div>
-                                            <div class="flip-card-back-content">
-                                                <h3 class="flip-back-title">{{ $service->back_title ?? $service->front_title }}</h3>
-                                                @if($service->back_description)
-                                                    <div class="flip-back-desc">{!! $service->back_description !!}</div>
-                                                @endif
-                                                @if($service->button_link && $service->button_text)
-                                                    <a href="{{ $service->button_link }}" class="btn btn-outline-light mt-3">{{ $service->button_text }}</a>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </section>
-            @break
-
     @endswitch
 @endforeach
 
-<!-- Mission Section (Static - kept as backup or for future modularization) -->
-<section class="about-mission-section" id="mission">
+<section class="about-services-section" id="services">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center" data-aos="fade-up">
-                <h2 class="section-title">Our Mission</h2>
-                <p class="section-description">Content coming soon...</p>
-            </div>
+            @foreach($services as $service)
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="{{ asset($service->front_image) }}" alt="{{ $service->front_title }}" style="width:100%;height:100%;object-fit:cover;">
+                                <div class="flip-card-front-overlay">
+                                    <h3 class="flip-card-title">{{ $service->front_title }}</h3>
+                                    @if($service->front_description)
+                                        <p class="mb-0 text-white-50">{!! $service->front_description !!}</p>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="flip-card-back" style="{{ $service->back_image ? 'background-image: url('.asset($service->back_image).'); background-size: cover;' : '' }}">
+                                <div class="flip-card-back-overlay"></div>
+                                <div class="flip-card-back-content">
+                                    <h3 class="flip-back-title">{{ $service->back_title ?? $service->front_title }}</h3>
+                                    @if($service->back_description)
+                                        <div class="flip-back-desc">{!! $service->back_description !!}</div>
+                                    @endif
+                                    @if($service->button_link && $service->button_text)
+                                        <a href="{{ $service->button_link }}" class="btn btn-outline-light mt-3">{{ $service->button_text }}</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -283,7 +256,7 @@
     .welcome-title { font-size: 1.5rem; font-weight: 700; color: #d35400; margin-bottom: 0.5rem; }
     .welcome-subtitle { font-size: 1.2rem; font-weight: 600; color: #333; margin-bottom: 1.5rem; }
     .welcome-text { font-size: 0.95rem; color: #555; line-height: 1.8; margin-bottom: 1rem; }
-    
+
     .about-fullwidth-image-section { width: 100%; overflow: hidden; }
     .fullwidth-image { width: 100%; height: auto; display: block; border-radius: 10px; }
 
@@ -295,7 +268,7 @@
     .expertise-image { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
     .expertise-title { font-size: 1.5rem; font-weight: 700; color: #333; margin-bottom: 1.5rem; }
     .expertise-list { font-size: 1rem; color: #555; margin-bottom: 0.75rem; line-height: 1.6; }
-    
+
     .section-title { font-size: 2.5rem; font-weight: 700; color: #333; margin-bottom: 1.5rem; }
     .section-description { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; }
 </style>
