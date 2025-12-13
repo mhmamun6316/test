@@ -162,31 +162,32 @@
         </section>
     @endif
 
-<!-- Values Section -->
+<!-- Values and Sourcing Philosophy Parallax Section -->
 <section class="parallax-values-section" id="values">
-    <div class="values-overlay"></div>
-    <div class="container relative-z">
-        <div class="row mb-5">
-            <div class="col-lg-12 text-center" data-aos="fade-up">
-                <h2 class="values-section-title">Values and Sourcing Philosophy</h2>
+    <div class="parallax-values-content">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="parallax-values-title">Values and Sourcing Philosophy</h2>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            @foreach($values as $value)
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-                    <div class="value-card">
-                        @if($value->icon)
-                            <div class="value-icon-wrapper">
-                                <img src="{{ asset($value->icon) }}" alt="{{ $value->title }}" class="value-icon">
+            <div class="row">
+                @foreach($values as $value)
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+                        <div class="value-card">
+                            @if($value->icon)
+                                <div class="value-icon-wrapper">
+                                    <img src="{{ asset($value->icon) }}" alt="{{ $value->title }}" class="value-icon">
+                                </div>
+                            @endif
+                            <h3 class="value-title">{{ $value->title }}</h3>
+                            <div class="value-description">
+                                {!! $value->description !!}
                             </div>
-                        @endif
-                        <h3 class="value-title">{{ $value->title }}</h3>
-                        <div class="value-description">
-                            {!! $value->description !!}
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
 </section>
