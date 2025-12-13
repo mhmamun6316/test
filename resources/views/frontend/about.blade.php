@@ -100,50 +100,93 @@
     @endswitch
 @endforeach
 
-<section class="about-services-section" id="services">
-    <div class="container">
+    @if($services->isNotEmpty())
+        <section class="about-services-section" id="services">
+            <div class="container">
+                <div class="row">
+                    @foreach($services as $service)
+                        <div class="col-lg-4 col-md-6 mb-4"
+                             data-aos="fade-up"
+                             data-aos-delay="{{ $loop->iteration * 100 }}">
+
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+
+                                    <div class="flip-card-front">
+                                        <img src="{{ asset($service->front_image) }}"
+                                             alt="{{ $service->front_title }}"
+                                             style="width:100%;height:100%;object-fit:cover;">
+
+                                        <div class="flip-card-front-overlay">
+                                            <h3 class="flip-card-title">{{ $service->front_title }}</h3>
+                                            @if(!empty($service->front_description))
+                                                <p class="mb-0 text-white-50">{!! $service->front_description !!}</p>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="flip-card-back"
+                                         style="{{ !empty($service->back_image)
+                                    ? 'background-image:url('.asset($service->back_image).');background-size:cover;'
+                                    : '' }}">
+
+                                        <div class="flip-card-back-overlay"></div>
+
+                                        <div class="flip-card-back-content">
+                                            <h3 class="flip-back-title">
+                                                {{ $service->back_title ?? $service->front_title }}
+                                            </h3>
+
+                                            @if(!empty($service->back_description))
+                                                <div class="flip-back-desc">
+                                                    {!! $service->back_description !!}
+                                                </div>
+                                            @endif
+
+                                            @if(!empty($service->button_link) && !empty($service->button_text))
+                                                <a href="{{ $service->button_link }}"
+                                                   class="btn btn-outline-light mt-3">
+                                                    {{ $service->button_text }}
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+<!-- Values Section -->
+<section class="parallax-values-section" id="values">
+    <div class="values-overlay"></div>
+    <div class="container relative-z">
+        <div class="row mb-5">
+            <div class="col-lg-12 text-center" data-aos="fade-up">
+                <h2 class="values-section-title">Values and Sourcing Philosophy</h2>
+            </div>
+        </div>
         <div class="row">
-            @foreach($services as $service)
+            @foreach($values as $value)
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img src="{{ asset($service->front_image) }}" alt="{{ $service->front_title }}" style="width:100%;height:100%;object-fit:cover;">
-                                <div class="flip-card-front-overlay">
-                                    <h3 class="flip-card-title">{{ $service->front_title }}</h3>
-                                    @if($service->front_description)
-                                        <p class="mb-0 text-white-50">{!! $service->front_description !!}</p>
-                                    @endif
-                                </div>
+                    <div class="value-card">
+                        @if($value->icon)
+                            <div class="value-icon-wrapper">
+                                <img src="{{ asset($value->icon) }}" alt="{{ $value->title }}" class="value-icon">
                             </div>
-                            <div class="flip-card-back" style="{{ $service->back_image ? 'background-image: url('.asset($service->back_image).'); background-size: cover;' : '' }}">
-                                <div class="flip-card-back-overlay"></div>
-                                <div class="flip-card-back-content">
-                                    <h3 class="flip-back-title">{{ $service->back_title ?? $service->front_title }}</h3>
-                                    @if($service->back_description)
-                                        <div class="flip-back-desc">{!! $service->back_description !!}</div>
-                                    @endif
-                                    @if($service->button_link && $service->button_text)
-                                        <a href="{{ $service->button_link }}" class="btn btn-outline-light mt-3">{{ $service->button_text }}</a>
-                                    @endif
-                                </div>
-                            </div>
+                        @endif
+                        <h3 class="value-title">{{ $value->title }}</h3>
+                        <div class="value-description">
+                            {!! $value->description !!}
                         </div>
                     </div>
                 </div>
             @endforeach
-        </div>
-    </div>
-</section>
-
-<!-- Values Section (Static) -->
-<section class="about-values-section" id="values">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center" data-aos="fade-up">
-                <h2 class="section-title">Values & Sourcing Philosophy</h2>
-                <p class="section-description">Content coming soon...</p>
-            </div>
         </div>
     </div>
 </section>

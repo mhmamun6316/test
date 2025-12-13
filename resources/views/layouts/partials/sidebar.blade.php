@@ -23,7 +23,7 @@
         @if(auth()->user()->can('about_sections.view') || auth()->user()->can('services.view'))
             <li class="nav-item">
                 <a class="nav-link d-flex justify-content-between align-items-center
-           {{ (request()->routeIs('admin.about-sections.*') || request()->routeIs('admin.services.*')) ? '' : 'collapsed' }}"
+           {{ (request()->routeIs('admin.about-sections.*') || request()->routeIs('admin.services.*') || request()->routeIs('admin.values.*')) ? '' : 'collapsed' }}"
                    href="#"
                    data-bs-toggle="collapse"
                    data-bs-target="#collapseAbout"
@@ -34,7 +34,7 @@
                 </a>
 
                 <div id="collapseAbout"
-                     class="collapse {{ (request()->routeIs('admin.about-sections.*') || request()->routeIs('admin.services.*')) ? 'show' : '' }}">
+                     class="collapse {{ (request()->routeIs('admin.about-sections.*') || request()->routeIs('admin.services.*') || request()->routeIs('admin.values.*')) ? 'show' : '' }}">
 
                     <ul class="nav flex-column ms-4">
                         @can('about_sections.view')
@@ -54,6 +54,13 @@
                                 </a>
                             </li>
                         @endcan
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.values.*') ? 'active' : '' }}"
+                               href="{{ route('admin.values.index') }}">
+                                Values
+                            </a>
+                        </li>
                     </ul>
 
                 </div>

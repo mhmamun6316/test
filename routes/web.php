@@ -78,4 +78,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Services (Flip Cards) Management
     Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
     Route::post('/services/{service}/toggle-status', [\App\Http\Controllers\Admin\ServiceController::class, 'toggleStatus'])->name('services.toggle-status');
+
+    // Values Management
+    Route::resource('values', \App\Http\Controllers\Admin\ValueController::class);
+    Route::post('/values/{value}/toggle-status', [\App\Http\Controllers\Admin\ValueController::class, 'toggleStatus'])->name('values.toggle-status');
 });
