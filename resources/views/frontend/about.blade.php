@@ -192,6 +192,31 @@
     </div>
 </section>
 
+<!-- Our Global Presence Section -->
+@if($offices->isNotEmpty())
+<section class="global-presence-section" id="offices">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-12 text-center" data-aos="fade-up">
+                <h2 class="global-presence-title">Our Global Presence</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach($offices as $office)
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+                    <div class="office-card">
+                        <h3 class="about-office-title">{{ $office->title }}</h3>
+                        <div class="office-description">
+                            {!! nl2br(e($office->description)) !!}
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
+
 @if($sections->isEmpty())
     <div class="container py-5 text-center">
         <div class="alert alert-info">
@@ -329,6 +354,75 @@
 
     .section-title { font-size: 2.5rem; font-weight: 700; color: #333; margin-bottom: 1.5rem; }
     .section-description { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; }
+
+    /* Global Presence Section */
+    .global-presence-section {
+        padding: 30px 0;
+        background: #f8f9fa;
+    }
+
+    .global-presence-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #66bb6a;
+        text-align: center;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .office-card {
+        background: #e3f2fd;
+        padding: 40px 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .office-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .about-office-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .office-description {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.8;
+        flex-grow: 1;
+    }
+
+    .office-description p {
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .global-presence-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .office-card {
+            padding: 30px 20px;
+        }
+
+        .about-office-title {
+            font-size: 1.1rem;
+        }
+
+        .office-description {
+            font-size: 0.9rem;
+        }
+    }
 </style>
 @endpush
 

@@ -20,10 +20,10 @@
         </a>
         @endcan
 
-        @if(auth()->user()->can('about_sections.view') || auth()->user()->can('services.view'))
+        @if(auth()->user()->can('about_sections.view') || auth()->user()->can('services.view') || auth()->user()->can('offices.view'))
             <li class="nav-item">
                 <a class="nav-link d-flex justify-content-between align-items-center
-           {{ (request()->routeIs('admin.about-sections.*') || request()->routeIs('admin.services.*') || request()->routeIs('admin.values.*')) ? '' : 'collapsed' }}"
+           {{ (request()->routeIs('admin.about-sections.*') || request()->routeIs('admin.services.*') || request()->routeIs('admin.values.*') || request()->routeIs('admin.offices.*')) ? '' : 'collapsed' }}"
                    href="#"
                    data-bs-toggle="collapse"
                    data-bs-target="#collapseAbout"
@@ -34,7 +34,7 @@
                 </a>
 
                 <div id="collapseAbout"
-                     class="collapse {{ (request()->routeIs('admin.about-sections.*') || request()->routeIs('admin.services.*') || request()->routeIs('admin.values.*')) ? 'show' : '' }}">
+                     class="collapse {{ (request()->routeIs('admin.about-sections.*') || request()->routeIs('admin.services.*') || request()->routeIs('admin.values.*') || request()->routeIs('admin.offices.*')) ? 'show' : '' }}">
 
                     <ul class="nav flex-column ms-4">
                         @can('about_sections.view')
@@ -61,6 +61,15 @@
                                 Values
                             </a>
                         </li>
+
+                        @can('offices.view')
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.offices.*') ? 'active' : '' }}"
+                                   href="{{ route('admin.offices.index') }}">
+                                    Offices
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
 
                 </div>

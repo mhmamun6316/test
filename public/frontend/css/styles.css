@@ -869,17 +869,17 @@ html {
 
 .quote-banner-main {
     width: 100%;
-    min-height: 150px;
+    min-height: 120px;
     background: var(--primary-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
 }
 
 .quote-text {
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     font-style: italic;
     text-align: center;
@@ -1075,34 +1075,34 @@ html {
 /* Responsive Design for Quote Banner */
 @media (max-width: 991px) {
     .quote-text {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
 
     .quote-banner-main {
-        min-height: 120px;
-        padding: 30px 15px;
+        min-height: 100px;
+        padding: 20px 15px;
     }
 }
 
 @media (max-width: 767px) {
     .quote-text {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
 
     .quote-banner-main {
-        min-height: 100px;
-        padding: 25px 15px;
+        min-height: 80px;
+        padding: 15px 15px;
     }
 }
 
 @media (max-width: 576px) {
     .quote-text {
-        font-size: 1.2rem;
+        font-size: .8rem;
     }
 
     .quote-banner-main {
-        min-height: 90px;
-        padding: 20px 10px;
+        min-height: 70px;
+        padding: 10px 10px;
     }
 }
 

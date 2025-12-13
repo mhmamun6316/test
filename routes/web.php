@@ -75,6 +75,10 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('about-sections', \App\Http\Controllers\Admin\AboutSectionController::class);
     Route::post('/about-sections/{aboutSection}/toggle-status', [\App\Http\Controllers\Admin\AboutSectionController::class, 'toggleStatus'])->name('about-sections.toggle-status');
     
+    // Offices Management
+    Route::resource('offices', \App\Http\Controllers\Admin\OfficeController::class);
+    Route::post('/offices/{office}/toggle-status', [\App\Http\Controllers\Admin\OfficeController::class, 'toggleStatus'])->name('offices.toggle-status');
+    
     // Services (Flip Cards) Management
     Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
     Route::post('/services/{service}/toggle-status', [\App\Http\Controllers\Admin\ServiceController::class, 'toggleStatus'])->name('services.toggle-status');

@@ -73,6 +73,10 @@ class FrontendController extends Controller
             ->orderBy('sort_order')
             ->get();
             
-        return view('frontend.about', compact('sections', 'services', 'values'));
+        $offices = \App\Models\Office::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+            
+        return view('frontend.about', compact('sections', 'services', 'values', 'offices'));
     }
 }

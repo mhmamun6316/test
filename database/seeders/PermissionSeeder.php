@@ -52,6 +52,12 @@ class PermissionSeeder extends Seeder
             'about_sections.edit',
             'about_sections.delete',
 
+            // Offices Group
+            'offices.view',
+            'offices.create',
+            'offices.edit',
+            'offices.delete',
+
             // Services (Flip Cards) Group
             'services.view',
             'services.create',
