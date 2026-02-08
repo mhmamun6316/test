@@ -85,12 +85,12 @@
                             <div class="carousel-inner">
                                 <!-- Slide 1 -->
                                 <div class="carousel-item active">
-                                    <img src="{{ asset('frontend/assets/evolution1.png') }}" class="d-block w-100 carousel-img" alt="Fashion Evolution 1">
+                                    <img src="{{ asset('frontend/assets/pexels-kish-1488463.jpg') }}" class="d-block w-100 carousel-img" alt="Fashion Evolution 1">
                                 </div>
 
                                 <!-- Slide 2 -->
                                 <div class="carousel-item">
-                                    <img src="{{ asset('frontend/assets/evlotuion2.png') }}" class="d-block w-100 carousel-img" alt="Fashion Evolution 2">
+                                    <img src="{{ asset('frontend/assets/pexels-kaip-996329.jpg') }}" class="d-block w-100 carousel-img" alt="Fashion Evolution 2">
                                 </div>
                             </div>
 
